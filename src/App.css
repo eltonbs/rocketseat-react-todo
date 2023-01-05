@@ -1,0 +1,136 @@
+.app {
+    max-width: 48rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+
+}
+
+.app > header {
+    margin: 1.5rem 0;
+    text-align: center;
+}
+.app > header > img {
+    display: inline;
+    height: 3rem;
+}
+
+.searchBar form{
+    display: flex;
+    justify-content: space-between;
+}
+
+.searchBar input {
+    flex-grow: 1;
+    background-color: var(--gray-500);
+    border: 1px solid var(--gray-700);
+    border-radius: 8px;
+    height: 3.25rem;
+    padding: 1rem;
+    color: var(--gray-100);
+    font-size: 1rem;
+}
+
+.searchBar input::placeholder {
+    color: var(--gray-300);
+}
+
+.searchBar button {
+    color: var(--gray-100);
+    background-color: var(--blue-dark);
+    border: 0;
+    border-radius: 8px;
+    height: 3.25rem;
+    width: 5.625rem;
+    margin-left: 0.5rem;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+}
+
+.searchBar button:hover {
+    background-color: var(--blue);
+}
+
+.tasksContainer {
+    margin: 4rem 0;
+}
+
+.tasksHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin: 1.5rem 0;
+}
+
+.tasksHeader .badge {
+    margin-left: 0.5rem;
+}
+
+.createdTasksLabel {
+    color: var(--blue);
+    font-weight: bold;
+}
+
+.doneTasksLabel {
+    color: var(--purple);
+    font-weight: bold;
+}
+
+.task {
+    display: flex;
+    margin-top: 0.75rem;
+    padding: 1rem 0.875rem;
+    border-radius: 8px;
+    border: 1px solid var(--gray-400);
+    color: var(--gray-100);
+    background-color: var(--gray-500);
+}
+
+.task input {
+    flex-shrink: 0;
+}
+
+.task label {
+    flex-grow: 1;
+}
+
+.task input[type="checkbox"]:checked + label{
+    text-decoration: line-through;
+    color: var(--gray-300);
+    border: 1px solid var(--gray-500);
+}
+
+.deleteButton {
+    flex-shrink: 0;
+    margin-left: 0.875rem;
+    background-color: transparent;
+    color: var(--gray-300);
+    border: none;
+    cursor: pointer;
+    line-height: 0;
+    height: 1.5rem;
+    border-radius: 4px;
+}
+
+.deleteButton:hover {
+    color: var(--danger);
+    background-color: var(--gray-400);
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    font-size: .75em;
+    font-weight: bold;
+    line-height: 1;
+    color: var(--gray-200);
+    background-color: var(--gray-400);
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 50rem;
+}
+
