@@ -1,0 +1,18 @@
+.tasksHeader {
+    display: flex;
+    justify-content: space-between;
+    margin: 1.5rem 0;
+    font-weight: bold;
+}
+
+.tasksHeader :global .badge {
+    margin-left: 0.5rem;
+}
+
+.createdTasks {
+    color: var(--blue);
+}
+
+.completedTasks {
+    color: var(--purple);
+}

@@ -1,62 +1,39 @@
-import { PlusCircle, Trash } from "phosphor-react";
-import './App.css'
+import { NewTask } from "./components/NewTask";
+import { TaskList } from "./components/TaskList";
 import logo from './assets/logo.png';
+import styles from './App.module.css'
+
+const tasks = [
+  {
+    id: '1',
+    title: 'Primis dapibus laudem pertinax quo quidam te.',
+    isCompleted: false,
+  },
+  {
+    id: '2',
+    title: `Vocent hendrerit ut tristique bibendum quo veri utamur.
+            Utroque pharetra graeco ignota hinc explicari quo viderer.
+            Laoreet agam definitionem malorum adversarium.`,
+    isCompleted: false,
+  },
+  {
+    id: '3',
+    title: 'Odio mauris porta ne maiorum docendi metus animal euripidis his.',
+    isCompleted: true,
+  },
+];
 
 export function App() {
   return (
-    <div className="app">
+    <div className={styles.app}>
       <header>
-        <img src={logo} alt="Todo app"/>
+        <img src={logo} alt="Todo app" />
       </header>
 
       <main>
-        <div className="searchBar">
-          <form>
-            <input type="text" placeholder="Adicione uma nova tarefa" />
-            <button>
-              Criar <PlusCircle size="1.2rem" weight="bold" />
-            </button>
-          </form>
-        </div>
+        <NewTask />
 
-        <div className="tasksContainer">
-          <header className="tasksHeader">
-            <span className="createdTasksLabel">Tarefas criadas<span className="badge">5</span></span>
-            <span className="doneTasksLabel">Concluídas<span className="badge">2 de 5</span></span>
-          </header>
-
-          <div className="taskList">
-            <article className="task">
-              <input type="checkbox" id="task-1" />
-              <label htmlFor="task-1">
-                Primis dapibus laudem pertinax quo quidam te.
-              </label>
-              <button className="deleteButton" title="Excluir tarefa">
-                <Trash size="1rem" weight="bold" />
-              </button>
-            </article>
-            <article className="task">
-              <input type="checkbox" id="task-2" />
-              <label htmlFor="task-2">
-                Vocent hendrerit ut tristique bibendum quo veri utamur.
-                Utroque pharetra graeco ignota hinc explicari quo viderer.
-                Laoreet agam definitionem malorum adversarium.
-              </label>
-              <button className="deleteButton" title="Excluir tarefa">
-                <Trash size="1rem" weight="bold" />
-              </button>
-            </article>
-            <article className="task">
-              <input type="checkbox" id="task-3" />
-              <label htmlFor="task-3">
-                Odio mauris porta ne maiorum docendi metus animal euripidis his.
-              </label>
-              <button className="deleteButton" title="Excluir tarefa">
-                <Trash size="1rem" weight="bold" />
-              </button>
-            </article>
-          </div>
-        </div>
+        <TaskList tasks={tasks} />
       </main>
     </div>
   )

@@ -1,0 +1,30 @@
+.app {
+    max-width: 48rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.app > header {
+    margin: 1.5rem 0;
+    text-align: center;
+}
+
+.app > header > img {
+    display: inline;
+    height: 3rem;
+}
+
+:global(.badge) {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    font-size: .75em;
+    font-weight: bold;
+    line-height: 1;
+    color: var(--gray-200);
+    background-color: var(--gray-400);
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 50rem;
+}
+

@@ -1,0 +1,40 @@
+.task {
+    display: flex;
+    margin-top: 0.75rem;
+    padding: 1rem 0.875rem;
+    border-radius: 8px;
+    border: 1px solid var(--gray-400);
+    color: var(--gray-100);
+    background-color: var(--gray-500);
+}
+
+.task input {
+    flex-shrink: 0;
+}
+
+.task label {
+    flex-grow: 1;
+}
+
+.task input[type="checkbox"]:checked + label {
+    text-decoration: line-through;
+    color: var(--gray-300);
+    border: 1px solid var(--gray-500);
+}
+
+.deleteButton {
+    flex-shrink: 0;
+    margin-left: 0.875rem;
+    background-color: transparent;
+    color: var(--gray-300);
+    border: none;
+    cursor: pointer;
+    line-height: 0;
+    height: 1.5rem;
+    border-radius: 4px;
+}
+
+.deleteButton:hover {
+    color: var(--danger);
+    background-color: var(--gray-400);
+}
