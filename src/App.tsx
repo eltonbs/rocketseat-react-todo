@@ -1,29 +1,34 @@
+import { useState } from "react";
 import { NewTask } from "./components/NewTask";
 import { TaskList } from "./components/TaskList";
+import { TaskInterface } from "./components/interfaces";
 import logo from './assets/logo.png';
 import styles from './App.module.css'
 
-const tasks = [
-  {
-    id: '1',
-    title: 'Primis dapibus laudem pertinax quo quidam te.',
-    isCompleted: false,
-  },
-  {
-    id: '2',
-    title: `Vocent hendrerit ut tristique bibendum quo veri utamur.
-            Utroque pharetra graeco ignota hinc explicari quo viderer.
-            Laoreet agam definitionem malorum adversarium.`,
-    isCompleted: false,
-  },
-  {
-    id: '3',
-    title: 'Odio mauris porta ne maiorum docendi metus animal euripidis his.',
-    isCompleted: true,
-  },
-];
-
 export function App() {
+  const [tasks, setTasks] = useState<TaskInterface[]>([]);
+
+  function createTask(task: TaskInterface) {
+    setTasks([...tasks, task]);
+  }
+
+  function toggleCompletedTask(taskId: string) {
+    const updatedTasks = tasks.map((task) => {
+      if (task.id === taskId) {
+        return {...task, isCompleted: !task.isCompleted}
+      }
+      return task;
+    });
+
+    setTasks(updatedTasks)
+  }
+
+  function deleteTask(taskId: string) {
+    const remainingTasks = tasks.filter(task => task.id !== taskId)
+
+    setTasks(remainingTasks);
+  }
+
   return (
     <div className={styles.app}>
       <header>
@@ -31,9 +36,13 @@ export function App() {
       </header>
 
       <main>
-        <NewTask />
+        <NewTask onCreateTask={createTask}/>
 
-        <TaskList tasks={tasks} />
+        <TaskList
+          tasks={tasks}
+          onToggleCompletedTask={toggleCompletedTask}
+          onDeleteTask={deleteTask}
+        />
       </main>
     </div>
   )

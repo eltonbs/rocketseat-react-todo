@@ -6,12 +6,16 @@ import styles from "./TaskList.module.css";
 
 interface Props {
   tasks: TaskInterface[];
+  onToggleCompletedTask: (id: string) => void;
+  onDeleteTask: (id: string) => void;
 }
 
-export function TaskList({ tasks }: Props) {
+export function TaskList({ tasks, onToggleCompletedTask, onDeleteTask }: Props) {
   const taskList = tasks.map(task =>
     <Task
       key={task.id}
+      onToggleCompletedTask={onToggleCompletedTask}
+      onDeleteTask={onDeleteTask}
       {...task}
     />
   );
